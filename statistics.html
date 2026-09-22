@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics Widget</title>
+</head>
+
+<body>
+
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+
+    <script>
+
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        var randomNumber = getRndInteger(1, 100);
+
+        var output;
+        output = String(75);
+        var convert = Number(output);
+
+        var value = "50";
+        var result = value * 2;
+
+
+        document.getElementById("demo").innerHTML =
+            "Random integer between 0 and 100: " + randomNumber;
+
+        document.getElementById("demo1").innerHTML =
+            "User score as a string: " + output;
+
+        document.getElementById("demo2").innerHTML =
+            "Type of user score: " + typeof(output);
+
+        document.getElementById("demo3").innerHTML =
+            `User score converted to a number: <b>${convert}</b> | Type: <b>${typeof(convert)}</b>`;
+
+        document.getElementById("demo4").innerHTML =
+            "Difference between random number and user score: " +
+            Math.abs(randomNumber - convert);
+
+        document.getElementById("demo5").innerHTML =
+            "Rounded square root of user score: " +
+            Math.round(Math.sqrt(convert));
+
+        document.getElementById("demo6").innerHTML =
+            "Value of π (pi): " + Math.PI;
+
+        document.getElementById("demo7").innerHTML =
+            `Implicit conversion: "50" × 2 = <b>${result}</b>`;
+
+    </script>
+
+</body>
+</html>
