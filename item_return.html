@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Return Page</title>
+</head>
+<body>
+
+    <p>Click the button to check return eligibility.</p>
+
+    <button onclick="eligible()">Return Eligibility</button>
+
+    <p id="heading"></p>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+
+    <script>
+
+    let order = {
+        itemName: "School Bag",
+        isDelivered: true,
+        daysSinceDelivery: 3
+    };
+
+    function eligible() {
+
+        var itemDelivered = order.isDelivered;
+        var deliveryDays = order.daysSinceDelivery <= 7;
+
+        let itemNameAvail = "itemName" in order;
+
+        var eligible = (itemDelivered && deliveryDays) ? "Eligible for Return" : "Return Period Expired";
+
+        document.getElementById("heading").innerHTML = "<strong>Item Details :</strong>";
+        document.getElementById("demo").innerHTML = "<em>Item Name: </em>"+  order.itemName;
+        document.getElementById("demo1").innerHTML = "<em>Days since Delivery: </em>"+ order.daysSinceDelivery;
+        document.getElementById("demo2").innerHTML = "<em>Eligibility : </em>"+ eligible;
+        document.getElementById("demo3").innerHTML = "-----------------------------------------------------------"
+
+        delete order.daysSinceDelivery;
+
+        let check = "daysSinceDelivery" in order;
+
+        document.getElementById("demo4").innerHTML =
+            "Does itemName exist in obect? " + itemNameAvail;
+
+        document.getElementById("demo5").innerHTML = "<strong>Deleting daysSinceDelivery from object:</strong>" 
+        document.getElementById("demo6").innerHTML =
+            "Does daysSinceDelivery still exist in object? " + check;
+    }
+
+    </script>
+
+</body>
+</html>
