@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Grocery Store</title>
+</head>
+<body>
+
+    <p id="title"></p>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="updated"></p>
+
+    <script>
+        var productNames = ["apple", "orange", "grapes"];
+        var prices = [50, 60, 70];
+
+        var merged = [];
+
+        for (var i = 0; i < productNames.length; i++) {
+            merged.push("Product: " + productNames[i] + " - Price: " + prices[i]);
+        }
+
+        document.getElementById("title").innerHTML = "Item Details: ";
+        document.getElementById("demo").innerHTML = merged.join("<br>");
+
+        var over50 = productNames.filter(myFunction);
+        document.getElementById("demo1").innerHTML = "Products with prices greater than 50: " + over50.join(", ");
+
+        function myFunction(value, index, array) {
+        return prices[index] > 50;
+        }
+
+        productNames.push("Watermelon");
+        prices.push(80);
+
+        var updated = [];
+
+        for (var i = 0; i < productNames.length; i++) {
+            updated.push("Product: " + productNames[i] + " - Price: " + prices[i]);
+        }
+
+        document.getElementById("updated").innerHTML =
+            "Updated Product List:<br><br>" + updated.join("<br>");
+    </script>
+
+</body>
+</html>
+
