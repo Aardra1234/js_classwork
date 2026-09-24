@@ -19,11 +19,7 @@
 
     <script>
 
-        function getRndInteger(min, max) {
-            return Math.floor(Math.random() * (max - min)) + min;
-        }
-
-        var randomNumber = getRndInteger(1, 100);
+        const randomNum = Math.floor(Math.random() * 99) + 1;
 
         var output;
         output = String(75);
@@ -34,7 +30,7 @@
 
 
         document.getElementById("demo").innerHTML =
-            "Random integer between 0 and 100: " + randomNumber;
+            "Random integer between 0 and 100: " + randomNum;
 
         document.getElementById("demo1").innerHTML =
             "User score as a string: " + output;
@@ -47,7 +43,7 @@
 
         document.getElementById("demo4").innerHTML =
             "Difference between random number and user score: " +
-            Math.abs(randomNumber - convert);
+            Math.abs(randomNum - convert);
 
         document.getElementById("demo5").innerHTML =
             "Rounded square root of user score: " +
