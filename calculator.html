@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Calculator</title>
+</head>
+<body>
+    <script>
+
+        var totalBill = 0;
+
+        for(var i = 0; i < 5; i++) {
+
+            var productCode = parseInt(prompt("Enter a product code (1: Apple, 2: Banana, 3: Mango)"));
+
+            if(productCode < 1 || productCode > 3) {
+                console.log("Invalid product code. Purchase skipped.\n");
+                continue;
+            }
+
+            var quantity = parseInt(prompt("Enter the quantity:"));
+
+            var itemTotal = 0;
+            var productName = "";
+
+            switch(productCode) {
+
+                case 1:
+                    productName = "Apple";
+                    itemTotal = 30 * quantity;
+                    break;
+
+                case 2:
+                    productName = "Banana";
+                    itemTotal = 10 * quantity;
+                    break;
+
+                case 3:
+                    productName = "Mango";
+                    itemTotal = 50 * quantity;
+                    break;
+            }
+
+            console.log(`Product: ${productName}, Quantity: ${quantity}`);
+            console.log(`Total price: ₹${itemTotal}`);
+
+            if(itemTotal > 100) {
+                console.log("High purchase\n");
+            }
+            else {
+                console.log("Normal purchase\n");
+            }
+
+            totalBill += itemTotal;
+        }
+
+        console.log(`Final bill: ₹${totalBill}`);
+
+    </script>
+</body>
+</html>
