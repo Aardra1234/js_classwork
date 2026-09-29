@@ -19,6 +19,7 @@
     <p id="demo4"></p>
     <p id="demo5"></p>
     <p id="demo6"></p>
+    <p id="demo7"></p>
 
     <script>
 
@@ -43,16 +44,22 @@
         document.getElementById("demo2").innerHTML = "<em>Eligibility : </em>"+ eligible;
         document.getElementById("demo3").innerHTML = "-----------------------------------------------------------"
 
+       
         delete order.daysSinceDelivery;
-
         let check = "daysSinceDelivery" in order;
+        document.getElementById("demo7").innerHTML = "Trying to print after deleting the property daysSinceDelivery  " + order.daysSinceDelivery;
 
-        document.getElementById("demo4").innerHTML =
-            "Does itemName exist in obect? " + itemNameAvail;
-
-        document.getElementById("demo5").innerHTML = "<strong>Deleting daysSinceDelivery from object:</strong>" 
+         document.getElementById("demo5").innerHTML = "<strong>Deleting daysSinceDelivery from object:</strong>" 
         document.getElementById("demo6").innerHTML =
             "Does daysSinceDelivery still exist in object? " + check;
+
+
+        document.getElementById("demo4").innerHTML =
+            "Does itemName exist in object? " + itemNameAvail;
+
+
+        
+       
     }
 
     </script>
