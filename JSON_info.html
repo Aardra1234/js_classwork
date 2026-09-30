@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+</head>
+<body>
+    <script>
+        let jsonText = '{ "name":"Kevin", "email":"kevin@gmail.com","message":"Need Improvements"}';
+        console.log("Information from user in JSON format: " + jsonText );
+
+        try {
+
+            let personDetails = JSON.parse(jsonText);
+            console.log("Converting JSON text into a JavaScript object:" + personDetails);
+
+            let printGreeting = () => {
+                console.log("Message received from " + personDetails.name);
+            };
+
+            printGreeting();
+
+        } catch (error) {
+
+            console.log("Error: Something went wrong with the JSON data.");
+
+        }
+    </script>
+</body>
+</html>
