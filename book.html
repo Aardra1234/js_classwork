@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Info</title>
+</head>
+<body>
+
+    <script>
+       
+        class Book {
+
+            constructor(title, author, price) {
+
+                this._title = title;
+                this._author = author;
+                this._price = price;
+                
+            }
+
+            get title() {
+
+                return this._title;
+
+            }
+
+            get author() {
+
+                return this._author;
+
+            }
+
+            set price(newPrice) {
+
+                if (typeof newPrice === 'number' && newPrice > 0) {
+                    this._price = newPrice;
+                    console.log(`Price successfully updated to: ${newPrice}`);
+                } else {
+                    console.log(`Failed to update price to "${newPrice}": Must be a number greater than 0.`);
+                }
+
+            }
+
+            getDetails() {
+
+                return `Title: ${this._title} | Author: ${this._author} | Price: ${this._price}`;
+
+            }
+        }
+
+        book1 = new Book("The Alchemist", "Paulo Coelho", 100);
+        console.log("--- Initial Book Details ---");
+        console.log(book1.getDetails());
+
+        console.log("\n--- Attempting Invalid Update (String) ---");
+        book1.price = "Two Hundred"; 
+
+        console.log("\n--- Attempting Invalid Update (Negative Number) ---");
+        book1.price = -5;
+
+        console.log("\n--- Attempting Valid Update ---");
+        book1.price = 150;
+
+        console.log("\n--- Final Book Details ---");
+        console.log(`Using Getters -> Title: ${book1.title}, Author: ${book1.author}`);
+        console.log(`Full Overview  -> ${book1.getDetails()}`);
+
+    </script>
+</body>
+</html>
