@@ -8,7 +8,7 @@
 <body>
 
     <script>
-       
+
         class Book {
 
             constructor(title, author, price) {
@@ -16,56 +16,55 @@
                 this._title = title;
                 this._author = author;
                 this._price = price;
-                
+
             }
 
-            get title() {
+            getTitle() {
 
                 return this._title;
 
             }
 
-            get author() {
+            getAuthor() {
 
                 return this._author;
 
             }
 
-            set price(newPrice) {
+            setPrice(newPrice) {
 
                 if (typeof newPrice === 'number' && newPrice > 0) {
                     this._price = newPrice;
                     console.log(`Price successfully updated to: ${newPrice}`);
                 } else {
-                    console.log(`Failed to update price to "${newPrice}": Must be a number greater than 0.`);
+                    console.log(`Failed to update price to "${newPrice}". Price must be a number greater than 0.`);
                 }
-
-            }
-
-            getDetails() {
-
-                return `Title: ${this._title} | Author: ${this._author} | Price: ${this._price}`;
 
             }
         }
 
-        book1 = new Book("The Alchemist", "Paulo Coelho", 100);
-        console.log("--- Initial Book Details ---");
-        console.log(book1.getDetails());
+        var book1 = new Book("The Alchemist", "Paulo Coelho", 100);
 
-        console.log("\n--- Attempting Invalid Update (String) ---");
-        book1.price = "Two Hundred"; 
+        console.log(" INITIAL BOOK DETAILS :");
+        console.log("Title:", book1.getTitle());
+        console.log("Author:", book1.getAuthor());
+        console.log("Price:", book1._price);
 
-        console.log("\n--- Attempting Invalid Update (Negative Number) ---");
-        book1.price = -5;
+        console.log("\nINVALID PRICE UPDATE (STRING) :");
+        book1.setPrice("Two Hundred");
 
-        console.log("\n--- Attempting Valid Update ---");
-        book1.price = 150;
+        console.log("\nINVALID PRICE UPDATE (NEGATIVE NUMBER) :");
+        book1.setPrice(-5);
 
-        console.log("\n--- Final Book Details ---");
-        console.log(`Using Getters -> Title: ${book1.title}, Author: ${book1.author}`);
-        console.log(`Full Overview  -> ${book1.getDetails()}`);
+        console.log("\n VALID PRICE UPDATE :");
+        book1.setPrice(150);
+
+        console.log("\n FINAL BOOK DETAILS :");
+        console.log("Title:", book1.getTitle());
+        console.log("Author:", book1.getAuthor());
+        console.log("Price:", book1._price);
 
     </script>
+
 </body>
 </html>
